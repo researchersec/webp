@@ -4,14 +4,14 @@
   "description": "A web application to parse .dem files using demoparser2 and Webpack for GitHub Pages",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --mode production",   // Build your app for production
-    "start": "webpack serve --mode development --open",  // Start local dev server
-    "deploy": "gh-pages -d dist"  // Deploy manually if needed (using gh-pages CLI)
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open",
+    "deploy": "gh-pages -d dist"  
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "demoparser2": "^1.0.0"  // Assuming this is the correct version for demoparser2
+    "demoparser2": "^1.0.0" 
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
