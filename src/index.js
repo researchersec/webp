@@ -2,6 +2,7 @@ import DemoParser from 'demoparser2';  // Importing demoparser2
 
 // Select the DOM elements
 const fileInput = document.getElementById('fileInput');
+const parseBtn = document.getElementById('parseBtn');  // Parse button
 const progressBar = document.getElementById('progress-bar');
 const logDiv = document.getElementById('log');
 const outputDiv = document.getElementById('output');  // To display parsed data
@@ -18,19 +19,29 @@ function updateProgressBar(percent) {
   progressBar.innerText = `${percent}%`;
 }
 
-// Function to handle file upload and parsing
-fileInput.addEventListener('change', async (event) => {
+// Enable "Parse" button when a file is selected
+fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
+  if (file) {
+    parseBtn.disabled = false;  // Enable the parse button
+    logMessage(`File selected: ${file.name}`);
+  } else {
+    parseBtn.disabled = true;   // Disable the parse button if no file is selected
+  }
+});
+
+// Function to handle file parsing when "Parse" button is clicked
+parseBtn.addEventListener('click', async () => {
+  const file = fileInput.files[0];
 
   if (!file) {
     logMessage("No file selected.");
     return;
   }
 
-  logMessage("File selected: " + file.name);
   logMessage("Uploading and parsing the file...");
 
-  // Simulate file upload progress (if uploading to a server, implement real upload logic here)
+  // Simulate file upload progress
   for (let i = 0; i <= 100; i += 10) {
     await new Promise(resolve => setTimeout(resolve, 200));  // Simulate delay
     updateProgressBar(i);
