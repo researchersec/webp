@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Parser</title>
+  <style>
+    #progress-container {
+      width: 100%;
+      background-color: #f3f3f3;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    #progress-bar {
+      width: 0%;
+      height: 30px;
+      background-color: #4caf50;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+    }
+    #log {
+      background: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      height: 150px;
+      overflow-y: auto;
+    }
+    #output {
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload and Parse .dem File</h1>
+
+  <input type="file" id="fileInput" />
+  <button id="parseBtn" disabled>Parse</button> <!-- The "Parse" button -->
+
+  <div id="progress-container">
+    <div id="progress-bar">0%</div>
+  </div>
+
+  <h3>Logs:</h3>
+  <div id="log"></div>
+
+  <h3>Parsed Data:</h3>
+  <div id="output"></div>
+
+  <script src="dist/bundle.js"></script> <!-- This will load your webpack-bundled JS -->
+</body>
+</html>
